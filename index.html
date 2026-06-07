@@ -4,25 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mayar — Coming Soon</title>
-  <meta name="description" content="Mayar — a baby care app for new mothers. Your baby's journey, beautifully tracked." />
+  <meta name="description" content="Mayar — a beautiful app to help new mothers track their baby's journey. Coming soon." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --pink: #f9d5e5;
-      --lavender: #e3d4f4;
-      --cream: #fff6ef;
-      --rose: #f3b6c9;
-      --plum: #6d5c7e;
-      --text: #5a4a5f;
-      --accent: #c98aa6;
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    :root {
+      --lavender: #c7b8ea;
+      --soft-pink: #f7c8d8;
+      --mint: #b9e6d3;
+      --ink: #4a4458;
+      --muted: #7a7390;
     }
 
     html, body {
@@ -30,176 +28,180 @@
     }
 
     body {
-      font-family: 'Nunito', sans-serif;
-      color: var(--text);
-      background: linear-gradient(135deg, var(--cream) 0%, var(--pink) 45%, var(--lavender) 100%);
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--ink);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 24px;
-      overflow-x: hidden;
+      background: linear-gradient(135deg, #f3e9ff 0%, #ffe9f1 45%, #e4f7ee 100%);
+      background-attachment: fixed;
       position: relative;
+      overflow: hidden;
     }
 
-    /* soft floating blobs in the background */
+    /* Soft floating blobs for a gentle, elegant backdrop */
     .blob {
-      position: fixed;
+      position: absolute;
       border-radius: 50%;
       filter: blur(60px);
       opacity: 0.55;
       z-index: 0;
-      pointer-events: none;
+      animation: float 14s ease-in-out infinite;
     }
     .blob.one {
       width: 360px; height: 360px;
-      background: var(--rose);
+      background: var(--lavender);
       top: -120px; left: -100px;
     }
     .blob.two {
-      width: 420px; height: 420px;
-      background: var(--lavender);
-      bottom: -160px; right: -120px;
+      width: 320px; height: 320px;
+      background: var(--soft-pink);
+      bottom: -120px; right: -80px;
+      animation-delay: 3s;
     }
     .blob.three {
-      width: 240px; height: 240px;
-      background: #ffe7c2;
-      top: 40%; right: 10%;
+      width: 280px; height: 280px;
+      background: var(--mint);
+      bottom: 10%; left: 8%;
+      animation-delay: 6s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-24px) translateX(16px); }
     }
 
     .card {
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 540px;
-      background: rgba(255, 255, 255, 0.55);
+      max-width: 560px;
+      background: rgba(255, 255, 255, 0.72);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
-      border: 1px solid rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.6);
       border-radius: 32px;
       padding: 56px 44px;
       text-align: center;
-      box-shadow: 0 24px 60px rgba(141, 110, 130, 0.22);
+      box-shadow: 0 24px 60px rgba(124, 102, 168, 0.22);
+      animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .badge {
       display: inline-block;
       font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--accent);
-      background: rgba(255, 255, 255, 0.75);
-      border: 1px solid var(--rose);
+      color: #8a6fc0;
+      background: rgba(199, 184, 234, 0.32);
       padding: 8px 18px;
       border-radius: 999px;
       margin-bottom: 28px;
-      box-shadow: 0 6px 16px rgba(201, 138, 166, 0.18);
     }
 
     .logo {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: clamp(3.4rem, 12vw, 5.2rem);
-      line-height: 1;
-      color: var(--plum);
-      letter-spacing: 0.01em;
-      margin-bottom: 6px;
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 24px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--lavender), var(--soft-pink));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      box-shadow: 0 10px 24px rgba(199, 184, 234, 0.5);
     }
 
-    .heart {
-      color: var(--rose);
+    h1 {
+      font-size: clamp(2rem, 6vw, 2.9rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
     }
 
     .tagline {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: clamp(1.05rem, 4vw, 1.4rem);
-      color: var(--text);
-      margin-bottom: 14px;
-    }
-
-    .sub {
-      font-size: 0.98rem;
+      font-size: clamp(1rem, 3.5vw, 1.18rem);
+      color: var(--muted);
       line-height: 1.6;
-      color: #7c6b80;
-      max-width: 380px;
-      margin: 0 auto 34px;
+      max-width: 420px;
+      margin: 0 auto 36px;
     }
 
     form {
       display: flex;
-      gap: 10px;
-      background: rgba(255, 255, 255, 0.85);
-      padding: 8px;
-      border-radius: 999px;
-      box-shadow: inset 0 2px 6px rgba(141, 110, 130, 0.08);
-      max-width: 420px;
+      gap: 12px;
+      max-width: 440px;
       margin: 0 auto;
     }
 
     input[type="email"] {
       flex: 1;
-      border: none;
-      background: transparent;
-      outline: none;
-      padding: 14px 18px;
+      min-width: 0;
       font-family: inherit;
-      font-size: 0.98rem;
-      color: var(--text);
-      border-radius: 999px;
+      font-size: 1rem;
+      padding: 15px 20px;
+      border: 1.5px solid rgba(199, 184, 234, 0.55);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-
-    input[type="email"]::placeholder {
-      color: #b6a6ba;
+    input[type="email"]::placeholder { color: #a9a3bb; }
+    input[type="email"]:focus {
+      border-color: var(--lavender);
+      box-shadow: 0 0 0 4px rgba(199, 184, 234, 0.25);
     }
 
     button {
-      border: none;
-      cursor: pointer;
       font-family: inherit;
+      font-size: 1rem;
       font-weight: 700;
-      font-size: 0.95rem;
       color: #fff;
-      padding: 14px 26px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--rose) 0%, var(--accent) 100%);
-      box-shadow: 0 8px 20px rgba(201, 138, 166, 0.4);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      padding: 15px 26px;
+      border: none;
+      border-radius: 16px;
+      cursor: pointer;
       white-space: nowrap;
+      background: linear-gradient(135deg, #b69bea, #f49ac0);
+      box-shadow: 0 10px 22px rgba(180, 140, 220, 0.4);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
     }
-
     button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 26px rgba(201, 138, 166, 0.5);
+      box-shadow: 0 14px 28px rgba(180, 140, 220, 0.5);
+      filter: brightness(1.03);
     }
+    button:active { transform: translateY(0); }
 
-    button:active {
-      transform: translateY(0);
+    .note {
+      margin-top: 18px;
+      font-size: 0.86rem;
+      color: #a39bb6;
+      min-height: 1.2em;
+      transition: color 0.2s;
     }
+    .note.success { color: #4fae8c; font-weight: 600; }
 
-    .footnote {
-      margin-top: 22px;
+    footer {
+      margin-top: 34px;
       font-size: 0.82rem;
-      color: #9a8a9e;
+      color: #b0a9c2;
     }
 
     @media (max-width: 480px) {
-      .card {
-        padding: 44px 24px;
-        border-radius: 26px;
-      }
-      form {
-        flex-direction: column;
-        border-radius: 24px;
-        padding: 12px;
-      }
-      input[type="email"] {
-        text-align: center;
-      }
-      button {
-        width: 100%;
-      }
+      .card { padding: 40px 26px; border-radius: 26px; }
+      form { flex-direction: column; }
+      button { width: 100%; }
     }
   </style>
 </head>
@@ -210,19 +212,38 @@
 
   <main class="card">
     <span class="badge">Coming Soon</span>
-    <h1 class="logo">Mayar<span class="heart">.</span></h1>
-    <p class="tagline">Your baby's journey, beautifully tracked.</p>
-    <p class="sub">
-      A gentle, thoughtful companion for new mothers — feeds, naps, milestones,
-      and precious little moments, all in one calming place.
-    </p>
+    <div class="logo" aria-hidden="true">🍼</div>
+    <h1>Mayar — Coming Soon</h1>
+    <p class="tagline">A beautiful app to help new mothers track their baby's journey — feedings, sleep, milestones, and precious moments, all in one gentle place.</p>
 
-    <form onsubmit="return false;">
-      <input type="email" placeholder="Enter your email" aria-label="Email address" required />
+    <form id="signup" novalidate>
+      <input type="email" id="email" name="email" placeholder="Enter your email" aria-label="Email address" required />
       <button type="submit">Notify Me</button>
     </form>
+    <p class="note" id="note" role="status" aria-live="polite">Be the first to know when we launch. 💜</p>
 
-    <p class="footnote">Be the first to know when Mayar arrives. 🤍</p>
+    <footer>© 2026 Mayar · Made with love for new mothers</footer>
   </main>
+
+  <script>
+    const form = document.getElementById('signup');
+    const email = document.getElementById('email');
+    const note = document.getElementById('note');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const value = email.value.trim();
+      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      if (!valid) {
+        note.textContent = 'Please enter a valid email address.';
+        note.classList.remove('success');
+        email.focus();
+        return;
+      }
+      note.textContent = "Thank you! We'll let you know the moment Mayar is ready. 🎉";
+      note.classList.add('success');
+      form.reset();
+    });
+  </script>
 </body>
 </html>
