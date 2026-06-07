@@ -9,5 +9,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/braindev15/mayar-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/braindev15/mayar-app/issues"
+  },
+  "homepage": "https://github.com/braindev15/mayar-app#readme"
 }
