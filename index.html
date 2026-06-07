@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mayar — Coming Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ffe3ec 0%, #fde2ff 35%, #e8e3ff 70%, #fff5e6 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 16s ease infinite;
+      padding: 24px;
+      color: #5a4a6a;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 32px;
+      box-shadow: 0 20px 60px rgba(180, 150, 200, 0.25);
+      padding: 56px 48px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #b56b9a;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(181, 107, 154, 0.25);
+      padding: 8px 18px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+
+    .logo {
+      font-size: 64px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      background: linear-gradient(120deg, #ff9ec4 0%, #b08bff 60%, #ffb88c 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+      line-height: 1.1;
+    }
+
+    .heart {
+      display: inline-block;
+      font-size: 40px;
+      margin-left: 4px;
+      -webkit-text-fill-color: #ff9ec4;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    .tagline {
+      font-size: 19px;
+      font-weight: 300;
+      color: #7a6a8a;
+      margin-bottom: 36px;
+      line-height: 1.5;
+    }
+
+    .signup {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .signup input {
+      flex: 1;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      padding: 15px 20px;
+      border: 1px solid rgba(181, 107, 154, 0.25);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.85);
+      color: #5a4a6a;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .signup input::placeholder { color: #b3a6c0; }
+
+    .signup input:focus {
+      border-color: #d189b6;
+      box-shadow: 0 0 0 4px rgba(209, 137, 182, 0.15);
+    }
+
+    .signup button {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      padding: 15px 26px;
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(120deg, #ff9ec4 0%, #b08bff 100%);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 8px 20px rgba(176, 139, 255, 0.35);
+    }
+
+    .signup button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(176, 139, 255, 0.45);
+    }
+
+    .signup button:active { transform: translateY(0); }
+
+    .hint {
+      font-size: 13px;
+      color: #a596b5;
+      margin-bottom: 40px;
+    }
+
+    footer {
+      font-size: 13px;
+      color: #a596b5;
+      font-weight: 300;
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 40px 26px; border-radius: 26px; }
+      .logo { font-size: 48px; }
+      .heart { font-size: 30px; }
+      .tagline { font-size: 17px; }
+      .signup { flex-direction: column; }
+      .signup button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <span class="badge">Coming Soon</span>
+    <h1 class="logo">Mayar<span class="heart">♥</span></h1>
+    <p class="tagline">The smart way to care for your little one.</p>
+
+    <form class="signup" onsubmit="return false;">
+      <input type="email" placeholder="Enter your email" aria-label="Email address" />
+      <button type="submit">Notify Me</button>
+    </form>
+    <p class="hint">Be the first to know when we launch. No spam, ever.</p>
+
+    <footer>&copy; 2025 Mayar</footer>
+  </main>
+</body>
+</html>
